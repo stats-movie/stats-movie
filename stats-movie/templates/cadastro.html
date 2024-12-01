@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %} Página cadastro {% endblock %}
+{% block css %}
+<link href='https://fonts.googleapis.com/css?family=Work Sans' rel='stylesheet'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/cadastro.css') }}">
+  {% endblock %}
+  {% block content %}
+  <div class="container">
+    <div class="form-box">
+      <h2>Entrar com:</h2>
+      <button class="google-btn">
+        <img src="https://img.icons8.com/win10/400/ffffff/google-logo.png" alt="Google logo">
+        Google
+      </button>
+      <div class="divider">
+        <span>Ou</span>
+      </div>
+      <form action="#" method="post">
+        <div class="input-group">
+          <div class="input-field">
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" placeholder="Nome" required>
+          </div>
+          <div class="input-field">
+            <label for="sobrenome">Sobrenome</label>
+            <input type="text" name="sobrenome" placeholder="Sobrenome" required>
+          </div>
+        </div>
+        <div class="input-field">
+          <label for="username">Nome de Usuário</label>
+          <input type="text" name="username" placeholder="Nome de Usuário" required>
+        </div>
+        <div class="input-field">
+          <label for="email">Email</label>
+          <input type="email" name="email" placeholder="Email" required>
+        </div>
+        <div class="input-field">
+          <label for="password">Senha</label>
+          <input type="password" name="password" placeholder="Senha" required>
+          <small>A senha deve ter no mínimo 8 caracteres.</small>
+        </div>
+        <input type="submit" class="register-btn" value = "Entrar"/>
+      </form>
+      <p class="terms">
+        Criando a minha conta eu estou de acordo com os 
+        <a href="#">Termos de Uso</a> e <a href="#">Política de Privacidade</a>.
+      </p>
+      <p class="login-link">Já tem uma conta? <a href="/login">Entrar</a></p>
+    </div>
+  </div>
+{% endblock %}

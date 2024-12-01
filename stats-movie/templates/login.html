@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Página de Login</title>
   <link href='https://fonts.googleapis.com/css?family=Work Sans' rel='stylesheet'>
-  <link rel="stylesheet" href="/home/estudante1/Documentos/stats-movie/style/login.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename= '/styles/login.css') }}">
 </head>
 <body>
   <div class="container">
     <div class="logo">
         <h1>Entrar em: <br>
-            <img src="/home/estudante1/Documentos/stats-movie/stats-movie.png" alt="Logo" />
+            <img src="{{url_for('static', filename='/images/stats-movie.png')}}" alt="Logo" />
         </h1>
         
       
@@ -34,7 +34,7 @@
           <label for="remember">Lembrar deste dispositivo</label>
         </div>
         <button type="submit" class="btn">Entrar</button>
-        <p class="signup">Não tem uma conta? <a href="file:///home/estudante1/Documentos/stats-movie/templates/cadastro.html?#">Cadastrar-se</a></p>
+        <p class="signup">Não tem uma conta? <a href="/cadastro">Cadastrar-se</a></p>
       </form>
     </div>
     <footer>
