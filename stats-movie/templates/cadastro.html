@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %} Página cadastro {% endblock %}
+{% block title %} Cadastro {% endblock %}
 {% block css %}
 <link href='https://fonts.googleapis.com/css?family=Work Sans' rel='stylesheet'>
   <link rel="stylesheet" href="{{ url_for('static', filename='styles/cadastro.css') }}">
@@ -38,7 +38,15 @@
           <label for="password">Senha</label>
           <input type="password" name="password" placeholder="Senha" required>
           <small>A senha deve ter no mínimo 8 caracteres.</small>
+          {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              {% for msg in messages %}
+                <p class="logged-out">{{msg}}</p>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
         </div>
+
         <input type="submit" class="register-btn" value = "Entrar"/>
       </form>
       <p class="terms">

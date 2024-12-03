@@ -121,7 +121,12 @@
     color: #aaa;
     margin-top: 5px;
   }
-  
+
+  .logged-out {
+    color: red;
+    font-size: small;
+  }
+
   .register-btn {
     background-color: #e00000;
     border: none;
