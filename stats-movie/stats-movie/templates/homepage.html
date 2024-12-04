@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tela Inicial</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/homepage.css') }}">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">stats.movie</div>
+    <input type="text" placeholder="Pesquisar" class="search-bar">
+    <div class="search-container">
+      <button class="profile-btn">100.000 pts</button>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <br /><br /><br /><br />
+      <li>
+        <a href="#" class="logo2">
+        <i class="fas fa-home">
+            <img src="home_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.png" alt="">
+            <span class="nav-item">Home</span>
+        </i></a>
+      </li>
+      <li>
+        <a href="#" class="logo2">
+          <i class="fas fa-event">
+            <img src="fogo.png" alt="">
+            <span class="nav-item">Evento</span>
+          </i></a><br><br>
+      </li>
+      <li style="border-top: 1px solid white">
+      </li>
+      <li>
+        <a href="#" class="logo2">
+          <i class="fas fa-user">
+            <img src="historico.png" alt="">
+            <span class="nav-item">Filmes Assistidos</span>
+          </i>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="logo2">
+          <i class="fas fa-user">
+            <img src="lista.png" alt="">
+            <span class="nav-item">Minha Lista</span>
+          </i>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="logo2">
+          <i class="fas fa-user">
+            <img src="favoritos.png" alt="">
+            <span class="nav-item">Recomendados</span>
+          </i>
+        </a><br> <br>
+      </li>
+      <li style="border-top: 1px solid white">
+      </li>
+      <li>
+        <a href="#" class="logo2">
+          <i class="fas fa-gen">
+            <img src="linha.png" alt="">
+            <span class="nav-item">Ação</span>
+          </i>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="logo2">
+          <i class="fas fa-gen">
+            <img src="linha.png" alt="">
+            <span class="nav-item">Animação</span>
+          </i>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="logo2">
+          <i class="fas fa-gen">
+            <img src="linha.png" alt="">
+            <span class="nav-item">Comédia</span>
+          </i>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="logo2">
+          <i class="fas fa-gen">
+            <img src="linha.png" alt="">
+            <span class="nav-item">Terror</span>
+          </i>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="logo2">
+          <i class="fas fa-gen">
+            <img src="mais.png" alt="">
+            <span class="nav-item">Procurar Gêneros</span>
+          </i>
+        </a>
+      </li> <br> <br>
+      <li style="border-top: 1px solid white">
+      </li>
+      <li>
+        <a href="#" class="logo2">
+          <i class="fas fa-config">
+            <img src="config.png" alt="">
+            <span class="nav-item">Configurações</span>
+          </i>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="logo2">
+          <i class="fas fa-help">
+            <img src="help.png" alt="">
+            <span class="nav-item">Ajuda</span>
+          </i>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="logo2">
+          <i class="fas fa-feed">
+            <img src="feedback1.png" alt="">
+            <span class="nav-item">Feedback</span>
+          </i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <main>
+    <section class="highlight">
+      <div class="highlight-text">
+        <h1>Hoje é o Dia Internacional da Animação!</h1>
+        <p>Uma data especial para comemorar a arte da animação em todas as suas formas.</p>
+        <p class="promo">Todas as animações assistidas hoje estão valendo o dobro de pontos!</p>
+        <p>Então, escolha seu favorito, dê o play e aproveite essa celebração!</p>
+      </div>
+      <div class="carousel">
+        <img src="https://via.placeholder.com/300x400" alt="Animação 1">
+        <img src="https://via.placeholder.com/300x400" alt="Animação 2">
+        <img src="https://via.placeholder.com/300x400" alt="Animação 3">
+      </div>
+    </section>
+
+    <section class="category">
+      <h2>Filmes Assistidos</h2>
+      <div class="grid">
+        <img src="https://via.placeholder.com/150x200" alt="Filme 1">
+        <img src="https://via.placeholder.com/150x200" alt="Filme 2">
+        <img src="https://via.placeholder.com/150x200" alt="Filme 3">
+        <img src="https://via.placeholder.com/150x200" alt="Filme 4">
+        <img src="https://via.placeholder.com/150x200" alt="Filme 5">
+        <img src="https://via.placeholder.com/150x200" alt="Filme 6">
+        <img src="https://via.placeholder.com/150x200" alt="Filme 7">
+        <img src="https://via.placeholder.com/150x200" alt="Filme 8">
+        <img src="https://via.placeholder.com/150x200" alt="Filme 9">
+        <img src="https://via.placeholder.com/150x200" alt="Filme 10">
+        <img src="https://via.placeholder.com/150x200" alt="Filme 11">
+      </div>
+    </section>
+
+    <section class="category">
+      <h2>Minha Lista</h2>
+      <div class="grid">
+        <img src="https://via.placeholder.com/150x200" alt="Filme 1">
+        <img src="https://via.placeholder.com/150x200" alt="Filme 2">
+        <img src="https://via.placeholder.com/150x200" alt="Filme 3">
+        <img src="https://via.placeholder.com/150x200" alt="Filme 4">
+        <img src="https://via.placeholder.com/150x200" alt="Filme 5">
+        <img src="https://via.placeholder.com/150x200" alt="Filme 6">
+        <img src="https://via.placeholder.com/150x200" alt="Filme 7">
+        <img src="https://via.placeholder.com/150x200" alt="Filme 8">
+        <img src="https://via.placeholder.com/150x200" alt="Filme 9">
+        <img src="https://via.placeholder.com/150x200" alt="Filme 10">
+        <img src="https://via.placeholder.com/150x200" alt="Filme 11">
+      </div>
+    </section>
+
+    <section class="category">
+      <h2>Recomendados</h2>
+      <div class="grid">
+        <img src="https://via.placeholder.com/150x200" alt="Filme 1">
+        <img src="https://via.placeholder.com/150x200" alt="Filme 2">
+        <img src="https://via.placeholder.com/150x200" alt="Filme 3">
+        <img src="https://via.placeholder.com/150x200" alt="Filme 4">
+        <img src="https://via.placeholder.com/150x200" alt="Filme 5">
+        <img src="https://via.placeholder.com/150x200" alt="Filme 6">
+        <img src="https://via.placeholder.com/150x200" alt="Filme 7">
+        <img src="https://via.placeholder.com/150x200" alt="Filme 8">
+        <img src="https://via.placeholder.com/150x200" alt="Filme 9">
+        <img src="https://via.placeholder.com/150x200" alt="Filme 10">
+        <img src="https://via.placeholder.com/150x200" alt="Filme 11">
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>©2024 stats.movie. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>
+<link href='https://fonts.googleapis.com/css?family=Work Sans' rel='stylesheet'>

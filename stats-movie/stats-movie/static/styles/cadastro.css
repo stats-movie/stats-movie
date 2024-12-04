@@ -15,7 +15,7 @@
     margin: 0;
   }
   
-  .container {
+  .container-cadastro {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -89,7 +89,7 @@
     transform: translateY(-50%);
   }
   
-  .input-group {
+  .input-group-cadastro {
     display: flex;
     gap: 10px;
   }
@@ -120,11 +120,6 @@
     font-size: 12px;
     color: #aaa;
     margin-top: 5px;
-  }
-
-  .logged-out {
-    color: red;
-    font-size: small;
   }
 
   .register-btn {

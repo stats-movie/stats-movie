@@ -5,18 +5,18 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='styles/cadastro.css') }}">
   {% endblock %}
   {% block content %}
-  <div class="container">
+  <div class="container-cadastro">
     <div class="form-box">
       <h2>Entrar com:</h2>
       <button class="google-btn">
-        <img src="https://img.icons8.com/win10/400/ffffff/google-logo.png" alt="Google logo">
+        <img src="https://img.icons8.com/win10/100/ffffff/google-logo.png" alt="Google logo">
         Google
       </button>
       <div class="divider">
         <span>Ou</span>
       </div>
       <form action="#" method="post">
-        <div class="input-group">
+        <div class="input-group-cadastro">
           <div class="input-field">
             <label for="nome">Nome</label>
             <input type="text" name="nome" placeholder="Nome" required>
@@ -38,13 +38,6 @@
           <label for="password">Senha</label>
           <input type="password" name="password" placeholder="Senha" required>
           <small>A senha deve ter no mínimo 8 caracteres.</small>
-          {% with messages = get_flashed_messages() %}
-            {% if messages %}
-              {% for msg in messages %}
-                <p class="logged-out">{{msg}}</p>
-              {% endfor %}
-            {% endif %}
-          {% endwith %}
         </div>
 
         <input type="submit" class="register-btn" value = "Entrar"/>

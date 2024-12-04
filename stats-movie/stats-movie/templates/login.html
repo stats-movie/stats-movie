@@ -1,39 +1,42 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página de Login</title>
-  <link href='https://fonts.googleapis.com/css?family=Work Sans' rel='stylesheet'>
+{% extends "base.html" %}
+{% block title %} Login {% endblock %}
+{% block css %}
   <link rel="stylesheet" href="{{ url_for('static', filename= '/styles/login.css') }}">
-</head>
-<body>
-  <div class="container">
+  <link href='https://fonts.googleapis.com/css?family=Work Sans' rel='stylesheet'>
+  {% endblock %}
+  {% block content %}    
+  <div class="container-login">
     <div class="logo">
         <h1>Entrar em: <br>
             <img src="{{url_for('static', filename='/images/stats-movie.png')}}" alt="Logo" />
         </h1>
         
-      
     </div>
     <div class="login-box">
-      <form>
-        <div class="input-group">
+      <form action="#" method="post">
+        <div class="input-group-login">
           <label for="username">Nome de usuário ou email</label>
-          <input type="text" id="username" placeholder="Nome de usuário ou email" required>
+          <input type="text" id="username" name="user" placeholder="Nome de usuário ou email" required>
         </div>
-        <div class="input-group">
+        <div class="input-group-login">
           <label for="password">Senha</label>
           <div class="password-wrapper">
-            <input type="password" id="password" placeholder="Senha" required>
+            <input type="password" id="password" name="password" placeholder="Senha" required>
             </div>
           <p><a href="#" class="forgot-password">Esqueci minha senha?</a></p>
+          {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              {% for msg in messages %}
+                <p class="logged-out">{{msg}}</p>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
         </div>
         <div class="remember">
           <input type="checkbox" id="remember">
           <label for="remember">Lembrar deste dispositivo</label>
         </div>
-        <button type="submit" class="btn">Entrar</button>
+        <button type="submit" class="btn-enter">Entrar</button>
         <p class="signup">Não tem uma conta? <a href="/cadastro">Cadastrar-se</a></p>
       </form>
     </div>
@@ -41,5 +44,4 @@
       <a href="#">Termos</a> • <a href="#">Privacidade</a> • <a href="#">Ajuda</a>
     </footer>
   </div>
-</body>
-</html>
+  {% endblock %}

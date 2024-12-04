@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppings:wght@400;500;600;700&display=swap");
+
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Poppings", sans-serif;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+}
+
+nav{
+  background-color: #121212;
+  position: fixed;
+  top: -30px;
+  bottom: 0;
+  height: 105%;
+  left: 0;
+  background: 0F0F0F;
+  width: 40px;
+  overflow: hidden;
+  transition: width 0.2s linear;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+main {
+    padding-inline: 10dvw;
+}
+
+.logo2{
+    text-align: left;
+    transition: all 0.5s ease;
+}
+
+.logo2 img{
+    width: 25px;
+    border-radius: 50%;
+}
+
+.logo2 img:hover{
+    background-color: darkgray;
+    border-radius: 0px;
+}
+.logo2 span{
+    font-weight: bold;
+    padding: 15px;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+a{
+    position: relative;
+    color: #ffffff;
+    font-size: 14px;
+    display: table;
+    width: 300px;
+    padding: 10px;
+}
+
+.fas{
+    position: relative;
+    width: 70px;
+    height: 40px;
+    top: 14px;
+    font-size: 20px;
+    text-align: left;
+}
+
+.nav-item{
+    position: relative;
+    margin-left: 10px;
+}
+
+nav:hover{
+    width: 280px;
+    transition: all 0.5s ease;
+}
+
+.header {
+  position: sticky;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #1c1c1c;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: red;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+  margin-inline: auto;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  justify-content: center;
+}
+
+.profile-btn {
+  padding: 10px 20px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.highlight {
+  padding: 20px;
+  text-align: center;
+}
+
+.highlight-text {
+  margin-bottom: 20px;
+}
+
+.carousel {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.carousel img {
+  width: 200px;
+  border-radius: 10px;
+}
+
+.category {
+  padding: 20px;
+}
+
+.category h2 {
+  margin-bottom: 10px;
+}
+
+.grid {
+  display: flex;
+  gap: 10px;
+}
+
+.grid img {
+  width: 150px;
+  border-radius: 10px;
+}
