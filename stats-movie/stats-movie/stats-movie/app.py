@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from datetime import timedelta
+from funcs_db import usuario_inserir
 
 app = Flask(__name__)
 app.secret_key = "rochakkj."
@@ -13,6 +14,10 @@ def home():
 def cadastro():
     if request.method == "POST":
         session.permanent = True
+        nome_usuario = request.form['username']
+        email = request.form['email']
+        senha = request.form['password']
+        usuario_inserir(nome_usuario, email, senha)
         user = request.form["username"]
         session["user"] = user
         return redirect(url_for("login"))
@@ -27,7 +32,7 @@ def login():
 def user():
     if "user" in session:
         username = session["user"]
-        return f"<h1>Ola {username}</h1>"
+        return f"<h1>Ola {username}!</h1>"
     else:
         return redirect(url_for("cadastro"))
     
