@@ -1,19 +1,27 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tela Inicial</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles/homepage.css') }}">
+  <link rel="stylesheet"  href="{{ url_for('static', filename='styles/homepage.css') }}">
 </head>
 <body>
   <header class="header">
     <div class="logo">stats.movie</div>
-    <input type="text" placeholder="Pesquisar" class="search-bar">
-    <div class="search-container">
-      <button class="profile-btn">100.000 pts</button>
-    </div>
+    <form class="search-box" action="" >
+      <span class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 17a6 6 0 100-12 6 6 0 000 12zm4-1l4 4" />
+        </svg>
+      </span>
+      <input type="text" name="pesquisa" placeholder="Pesquise aqui..." class="search-bar">
+      <button type="submit">Buscar</button>
+    </form>
+    <a href="#" class="profile-button a1">
+      <div class="profile-icon"></div>
+      <span class="profile-points">100.000 pts.</span>
+    </a>
   </header>
 
   <nav>
@@ -22,14 +30,14 @@
       <li>
         <a href="#" class="logo2">
         <i class="fas fa-home">
-            <img src="home_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.png" alt="">
+            <img src="static/images/home.svg" alt="">
             <span class="nav-item">Home</span>
         </i></a>
       </li>
       <li>
         <a href="#" class="logo2">
           <i class="fas fa-event">
-            <img src="fogo.png" alt="">
+            <img src="static/images/evento.svg" alt="">
             <span class="nav-item">Evento</span>
           </i></a><br><br>
       </li>
@@ -38,7 +46,7 @@
       <li>
         <a href="#" class="logo2">
           <i class="fas fa-user">
-            <img src="historico.png" alt="">
+            <img src="static/images/historico.svg" alt="">
             <span class="nav-item">Filmes Assistidos</span>
           </i>
         </a>
@@ -46,7 +54,7 @@
       <li>
         <a href="#" class="logo2">
           <i class="fas fa-user">
-            <img src="lista.png" alt="">
+            <img src="static/images/lista.svg" alt="">
             <span class="nav-item">Minha Lista</span>
           </i>
         </a>
@@ -54,7 +62,7 @@
       <li>
         <a href="#" class="logo2">
           <i class="fas fa-user">
-            <img src="favoritos.png" alt="">
+            <img src="static/images/recom.svg" alt="">
             <span class="nav-item">Recomendados</span>
           </i>
         </a><br> <br>
@@ -64,7 +72,7 @@
       <li>
         <a href="#" class="logo2">
           <i class="fas fa-gen">
-            <img src="linha.png" alt="">
+            <img src="static/images/linha.svg" alt="">
             <span class="nav-item">Ação</span>
           </i>
         </a>
@@ -72,7 +80,7 @@
       <li>
         <a href="#" class="logo2">
           <i class="fas fa-gen">
-            <img src="linha.png" alt="">
+            <img src="static/images/linha.svg" alt="">
             <span class="nav-item">Animação</span>
           </i>
         </a>
@@ -80,7 +88,7 @@
       <li>
         <a href="#" class="logo2">
           <i class="fas fa-gen">
-            <img src="linha.png" alt="">
+            <img src="static/images/linha.svg" alt="">
             <span class="nav-item">Comédia</span>
           </i>
         </a>
@@ -88,7 +96,7 @@
       <li>
         <a href="#" class="logo2">
           <i class="fas fa-gen">
-            <img src="linha.png" alt="">
+            <img src="static/images/linha.svg" alt="">
             <span class="nav-item">Terror</span>
           </i>
         </a>
@@ -96,7 +104,7 @@
       <li>
         <a href="#" class="logo2">
           <i class="fas fa-gen">
-            <img src="mais.png" alt="">
+            <img src="static/images/mais.svg" alt="">
             <span class="nav-item">Procurar Gêneros</span>
           </i>
         </a>
@@ -106,7 +114,7 @@
       <li>
         <a href="#" class="logo2">
           <i class="fas fa-config">
-            <img src="config.png" alt="">
+            <img src="static/images/config.svg" alt="">
             <span class="nav-item">Configurações</span>
           </i>
         </a>
@@ -114,7 +122,7 @@
       <li>
         <a href="#" class="logo2">
           <i class="fas fa-help">
-            <img src="help.png" alt="">
+            <img src="static/images/ajuda.svg" alt="">
             <span class="nav-item">Ajuda</span>
           </i>
         </a>
@@ -122,13 +130,14 @@
       <li>
         <a href="#" class="logo2">
           <i class="fas fa-feed">
-            <img src="feedback1.png" alt="">
+            <img src="static/images/feedback.svg" alt="">
             <span class="nav-item">Feedback</span>
           </i>
         </a>
       </li>
     </ul>
   </nav>
+
   <main>
     <section class="highlight">
       <div class="highlight-text">
@@ -138,67 +147,98 @@
         <p>Então, escolha seu favorito, dê o play e aproveite essa celebração!</p>
       </div>
       <div class="carousel">
-        <img src="https://via.placeholder.com/300x400" alt="Animação 1">
-        <img src="https://via.placeholder.com/300x400" alt="Animação 2">
-        <img src="https://via.placeholder.com/300x400" alt="Animação 3">
+        <img src="https://m.media-amazon.com/images/M/MV5BZTA3OWVjOWItNjE1NS00NzZiLWE1MjgtZDZhMWI1ZTlkNzYwXkEyXkFqcGc@._V1_SX300.jpg" alt="Toy Story" class="a1">
+        <img src="https://m.media-amazon.com/images/M/MV5BMTc0NzU2OTYyN15BMl5BanBnXkFtZTgwMTkwOTg2MTI@._V1_SX300.jpg" alt="Cars 3" class="a2">
+        <img src="https://m.media-amazon.com/images/M/MV5BYWY3MDE2Y2UtOTE3Zi00MGUzLTg2MTItZjE1ZWVkMGVlODRmXkEyXkFqcGc@._V1_SX300.jpg" alt="Inside Out 2" class="a3">
       </div>
     </section>
 
     <section class="category">
       <h2>Filmes Assistidos</h2>
       <div class="grid">
-        <img src="https://via.placeholder.com/150x200" alt="Filme 1">
-        <img src="https://via.placeholder.com/150x200" alt="Filme 2">
-        <img src="https://via.placeholder.com/150x200" alt="Filme 3">
-        <img src="https://via.placeholder.com/150x200" alt="Filme 4">
-        <img src="https://via.placeholder.com/150x200" alt="Filme 5">
-        <img src="https://via.placeholder.com/150x200" alt="Filme 6">
-        <img src="https://via.placeholder.com/150x200" alt="Filme 7">
-        <img src="https://via.placeholder.com/150x200" alt="Filme 8">
-        <img src="https://via.placeholder.com/150x200" alt="Filme 9">
-        <img src="https://via.placeholder.com/150x200" alt="Filme 10">
-        <img src="https://via.placeholder.com/150x200" alt="Filme 11">
+        <img src="https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg" alt="The Dark Knight" class="f1">
+        <img src="https://m.media-amazon.com/images/M/MV5BOTBjNTEyNjYtYjdkNi00YzE5LTljYzUtZjVlYmYwZmJmZWYxXkEyXkFqcGc@._V1_SX300.jpg" alt="Ford vs Ferrari" class="f2">
+        <img src="https://m.media-amazon.com/images/M/MV5BNDdjZGQ5YzEtNTc2My00Mjc0LWFlMTctYzkwMzZlNzdiZWYzXkEyXkFqcGc@._V1_SX300.jpg" alt="Good Will Hunting" class="f3">
+        <img src="https://m.media-amazon.com/images/M/MV5BMDAyY2FhYjctNDc5OS00MDNlLThiMGUtY2UxYWVkNGY2ZjljXkEyXkFqcGc@._V1_SX300.jpg" alt="Shawshank Redemption" class="f4">
+        <img src="https://m.media-amazon.com/images/M/MV5BMDBkZDNjMWEtOTdmMi00NmExLTg5MmMtNTFlYTJlNWY5YTdmXkEyXkFqcGc@._V1_SX300.jpg" alt="Top Gun: Maverick" class="f5">
+        <img src="https://m.media-amazon.com/images/M/MV5BY2IzNzMxZjctZjUxZi00YzAxLTk3ZjMtODFjODdhMDU5NDM1XkEyXkFqcGc@._V1_SX300.jpg" alt="Se7en" class="f6">
+        <img src="https://m.media-amazon.com/images/M/MV5BN2NmN2VhMTQtMDNiOS00NDlhLTliMjgtODE2ZTY0ODQyNDRhXkEyXkFqcGc@._V1_SX300.jpg" alt="The Matrix" class="f7">
+        <img src="https://m.media-amazon.com/images/M/MV5BNzA1Njg4NzYxOV5BMl5BanBnXkFtZTgwODk5NjU3MzI@._V1_SX300.jpg" alt="Blade Runner 2049" class="f8">
       </div>
     </section>
 
     <section class="category">
       <h2>Minha Lista</h2>
       <div class="grid">
-        <img src="https://via.placeholder.com/150x200" alt="Filme 1">
-        <img src="https://via.placeholder.com/150x200" alt="Filme 2">
-        <img src="https://via.placeholder.com/150x200" alt="Filme 3">
-        <img src="https://via.placeholder.com/150x200" alt="Filme 4">
-        <img src="https://via.placeholder.com/150x200" alt="Filme 5">
-        <img src="https://via.placeholder.com/150x200" alt="Filme 6">
-        <img src="https://via.placeholder.com/150x200" alt="Filme 7">
-        <img src="https://via.placeholder.com/150x200" alt="Filme 8">
-        <img src="https://via.placeholder.com/150x200" alt="Filme 9">
-        <img src="https://via.placeholder.com/150x200" alt="Filme 10">
-        <img src="https://via.placeholder.com/150x200" alt="Filme 11">
+        <img src="https://m.media-amazon.com/images/M/MV5BZDRkODJhOTgtOTc1OC00NTgzLTk4NjItNDgxZDY4YjlmNDY2XkEyXkFqcGc@._V1_SX300.jpg" alt="Mad Max: Fury Road" class="f9">
+        <img src="https://m.media-amazon.com/images/M/MV5BNTcwYWE1NTYtOWNiYy00NzY3LWIwY2MtNjJmZDkxNDNmOWE1XkEyXkFqcGc@._V1_SX300.jpg" alt="Furiosa: A Mad Max Saga" class="f10">
+        <img src="https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_SX300.jpg" alt="Avengers: Endgame" class="f11">
+        <img src="https://m.media-amazon.com/images/M/MV5BOTgyOGQ1NDItNGU3Ny00MjU3LTg2YWEtNmEyYjBiMjI1Y2M5XkEyXkFqcGc@._V1_SX300.jpg" alt="Fight Club" class="f12">
+        <img src="https://m.media-amazon.com/images/M/MV5BMjIxMjgxNTk0MF5BMl5BanBnXkFtZTgwNjIyOTg2MDE@._V1_SX300.jpg" alt="The Wolf Of Wall Street" class="f13">
+        <img src="https://m.media-amazon.com/images/M/MV5BNGY3N2ZhYmMtYTlmYi00ZWIzLWJiZWMtMjgxMjljYTk3MDAwXkEyXkFqcGc@._V1_SX300.jpg" alt="Deadpool 2" class="f14">
+        <img src="https://m.media-amazon.com/images/M/MV5BNDA0MzM5YTctZTU2My00NGQ5LWE2NTEtNDM0MjZmMDBkOTZkXkEyXkFqcGc@._V1_SX300.jpg" alt="Zack Snyder's Justice League" class="f15">
+        <img src="https://m.media-amazon.com/images/M/MV5BN2JkMDc5MGQtZjg3YS00NmFiLWIyZmQtZTJmNTM5MjVmYTQ4XkEyXkFqcGc@._V1_SX300.jpg" alt="Oppenheimer" class="f16">
       </div>
     </section>
 
     <section class="category">
       <h2>Recomendados</h2>
       <div class="grid">
-        <img src="https://via.placeholder.com/150x200" alt="Filme 1">
-        <img src="https://via.placeholder.com/150x200" alt="Filme 2">
-        <img src="https://via.placeholder.com/150x200" alt="Filme 3">
-        <img src="https://via.placeholder.com/150x200" alt="Filme 4">
-        <img src="https://via.placeholder.com/150x200" alt="Filme 5">
-        <img src="https://via.placeholder.com/150x200" alt="Filme 6">
-        <img src="https://via.placeholder.com/150x200" alt="Filme 7">
-        <img src="https://via.placeholder.com/150x200" alt="Filme 8">
-        <img src="https://via.placeholder.com/150x200" alt="Filme 9">
-        <img src="https://via.placeholder.com/150x200" alt="Filme 10">
-        <img src="https://via.placeholder.com/150x200" alt="Filme 11">
+        <img src="https://m.media-amazon.com/images/M/MV5BYmUzYmJiMDMtZjIxNy00ZjBlLThjZDMtMDA1ZDM4MWMwNmI0XkEyXkFqcGc@._V1_SX300.jpg" alt="Ferrari" class="f17">
+        <img src="https://m.media-amazon.com/images/M/MV5BMTZhOGQxM2ItNGQyYy00YzE5LWI5MjMtNmMzNGQzNDE1OTUzXkEyXkFqcGc@._V1_SX300.jpg" alt="Rush" class="f18">
+        <img src="https://m.media-amazon.com/images/M/MV5BZmVjNzQ3MjYtYTZiNC00Y2YzLWExZTEtMTM2ZDllNDI0MzgyXkEyXkFqcGc@._V1_SX300.jpg" alt="Top Gun" class="f19">
+        <img src="https://m.media-amazon.com/images/M/MV5BMmU5NGJlMzAtMGNmOC00YjJjLTgyMzUtNjAyYmE4Njg5YWMyXkEyXkFqcGc@._V1_SX300.jpg" alt="The Batman" class="f20">
+        <img src="https://m.media-amazon.com/images/M/MV5BNjAxYjkxNjktYTU0YS00NjFhLWIyMDEtMzEzMTJjMzRkMzQ1XkEyXkFqcGc@._V1_SX300.jpg" alt="The Matrix Reloaded" class="f21">
+        <img src="https://m.media-amazon.com/images/M/MV5BM2U0MTJiYTItMjNiZS00MzU4LTkxYTAtYTU0ZGY1ODJhMjRhXkEyXkFqcGc@._V1_SX300.jpg" alt="The Fall Guy" class="f22">
+        <img src="https://m.media-amazon.com/images/M/MV5BMzNmNjQ1NmUtNzhiZS00YWE2LTg4N2ItZTA2ODdmOTMwOTQ1XkEyXkFqcGc@._V1_SX300.jpg" alt="Shrek 2" class="f23">
+        <img src="https://m.media-amazon.com/images/M/MV5BZTZkYjA5MDEtMjY1ZC00ODk5LThjOTUtZDYxODEzYWNjMTU2XkEyXkFqcGc@._V1_SX300.jpg" alt="Soul" class="f24">
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <p>©2024 stats.movie. Todos os direitos reservados.</p>
+    <div class="footer-bottom">
+      <p>&copy; 2024 stats.movie. Todos os direitos reservados.</p>
+    </div>
   </footer>
+
+
+  <script>
+    const apikey = '57e04f8a';
+    const frmPesquisa = document.querySelector("form");
+
+    frmPesquisa.onsubmit = function(ev) {
+        ev.preventDefault();
+        alert("OK");
+
+        const pesquisa = ev.target.pesquisa.value;
+
+        if (pesquisa == ""){
+            alert('Preencha o campo!');
+            return;
+        }
+
+        fetch(`https://www.omdbapi.com/?apikey=${apikey}&t=${pesquisa}`)
+            .then(result => result.json())
+            .then(json => carregaLista(json));
+    }
+
+    const carregaLista = (json) => {
+        const lista = document.querySelector("div.lista");
+        lista.innerHTML = "";
+
+        json.Search.array.forEach(element => {
+            console.log(element);
+
+            let item = document.createElement("div");
+            item.classList.add("item");
+
+            item.innerHTML = `<img src="${element.Poster}" /><h2>${element.Title}<h2/>`;
+
+            lista.appendChild(item);
+        });
+    }
+  </script>
 </body>
 </html>
 <link href='https://fonts.googleapis.com/css?family=Work Sans' rel='stylesheet'>
