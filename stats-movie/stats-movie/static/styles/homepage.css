@@ -17,6 +17,131 @@ body {
   color: #ffffff;
 }
 
+.center {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.carrossel {
+  height: 250px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.carrossel .switchLeft,
+.carrossel .switchRight {
+  color: white;
+  font-weight: bold;
+  height: 100%;
+  width: 45px;
+  line-height: 250px;
+  font-size: 40px;
+  text-align: center;
+  top: 0;
+  z-index: 3;
+  background-color: #57575787;
+  cursor: pointer;
+}
+
+.carrossel .switchLeft {
+  position: absolute;
+  left: 0;
+}
+
+.carrossel .switchRight {
+  position: absolute;
+  right: 0;
+}
+
+.carrosselBox {
+  height: 250px;
+  width: auto;
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+  text-align: center;
+  padding-bottom: 10px !important;
+  display: flex;
+  align-items: center;
+}
+
+.carrosselBox img {
+  min-width: 147px;
+  max-width: 147px;
+  height: 210px;
+  background-size: cover;
+  background-color: rgb(226, 89, 89);
+  margin: 5px 10px;
+  cursor: pointer;
+  transition: 0.5s ease;
+  z-index: 2;
+}
+
+.carrosselBox img:hover {
+  transform: scale(1.1);
+  z-index: 5;
+}
+
+.carrosselBox2 {
+  height: 250px;
+  width: auto;
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+  text-align: center;
+  padding-bottom: 10px !important;
+  display: flex;
+  align-items: center;
+}
+
+.carrosselBox2 img {
+  min-width: 147px;
+  max-width: 147px;
+  height: 210px;
+  background-size: cover;
+  background-color: rgb(226, 89, 89);
+  margin: 5px 10px;
+  cursor: pointer;
+  transition: 0.5s ease;
+  z-index: 2;
+}
+
+.carrosselBox2 img:hover {
+  transform: scale(1.1);
+  z-index: 5;
+}
+
+.carrosselBox3 {
+  height: 250px;
+  width: auto;
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+  text-align: center;
+  padding-bottom: 10px !important;
+  display: flex;
+  align-items: center;
+}
+
+.carrosselBox3 img {
+  min-width: 147px;
+  max-width: 147px;
+  height: 210px;
+  background-size: cover;
+  background-color: rgb(226, 89, 89);
+  margin: 5px 10px;
+  cursor: pointer;
+  transition: 0.5s ease;
+  z-index: 2;
+}
+
+.carrosselBox3 img:hover {
+  transform: scale(1.1);
+  z-index: 5;
+}
+
 form {
     border: 1px solid;
     background-color: #ffffff;
@@ -148,12 +273,6 @@ nav:hover{
 
 .highlight-text {
   margin-bottom: 20px;
-}
-
-.carousel {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
 }
 
 .carousel img {
