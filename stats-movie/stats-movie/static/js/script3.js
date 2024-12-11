@@ -29,7 +29,7 @@ async function showMovieData3() {
 
   try {
     const response3 = await axios.get(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey3}&sort_by=vote_average.desc`
+      `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey3}&include_adult=false&include_video=false&language=en-US&page=1&sort_by=vote_average.desc&without_genres=99,10755&vote_count.gte=200%27&page=5`
     );
 
     const movies3 = response3.data.results;
