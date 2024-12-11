@@ -1,4 +1,15 @@
-from conexao_db import abrir_conexao, fechar_conexao
+from conexao_db import abrir_conexao, abrir_conexao_database, fechar_conexao
+
+def criar_database():
+
+    con = abrir_conexao_database("localhost", "estudante1", "123")
+    sql = "CREATE DATABASE if not exists stats_movie; USE stats_movie; CREATE TABLE if not exists usuarios (id_usuario INTEGER PRIMARY KEY NOT NULL auto_increment, data_nascimento DATE, numero_celular CHAR(11), nome VARCHAR(100), email VARCHAR(100) NOT NULL, senha VARCHAR(50) NOT NULL, nome_usuario VARCHAR(50) NOT NULL, foto_perfil VARCHAR(255), pontos INTEGER, UNIQUE (nome_usuario), UNIQUE(email), UNIQUE(senha));"
+    # Criando o cursor com a opção de retorno como dicionário   
+    cursor = con.cursor(dictionary=True)
+    cursor.execute(sql)
+
+    cursor.close()
+
 
 def usuarios_listar():
     con = abrir_conexao("localhost", "estudante1", "123", "stats_movie")

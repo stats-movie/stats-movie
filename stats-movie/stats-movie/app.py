@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from datetime import timedelta
-from funcs_db import usuario_inserir, usuario_checar, usuarios_listar
+from funcs_db import usuario_inserir, usuario_checar, criar_database
 
 app = Flask(__name__)
 app.secret_key = "rochakkj."
@@ -8,11 +8,12 @@ app.permanent_session_lifetime = timedelta(minutes=5)
 
 @app.route("/")
 def home():
-    return redirect(url_for("login"))
+    return redirect(url_for("homepage"))
 
 @app.route("/cadastro", methods = ["POST", "GET"])
 def cadastro():
     if request.method == "POST":
+        criar_database()
         nome_usuario = request.form['username']
         email = request.form['email']
         senha = request.form['password']
