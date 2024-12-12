@@ -1,9 +1,12 @@
 from conexao_db import abrir_conexao, abrir_conexao_database, fechar_conexao
-con = abrir_conexao("localhost", "estudante1", "123", "stats_movie")
+from hasher import senha_hash, verifica_senha
+
+con = abrir_conexao("localhost", "root", "1234", "stats_movie")
+
+# Cria o banco de dados stats_movie e suas tabelas
 def criar_database():
 
-    initial_con = abrir_conexao_database("localhost", "estudante1", "123")
-
+    initial_con = abrir_conexao_database("localhost", "root", "1234")
 
     sql = """
     CREATE DATABASE if not exists stats_movie;
@@ -14,38 +17,40 @@ def criar_database():
     numero_celular CHAR(11),
     nome VARCHAR(100),
     email VARCHAR(100) NOT NULL,
-    senha VARCHAR(50) NOT NULL,
+    senha VARCHAR(1000) NOT NULL,
     nome_usuario VARCHAR(50) NOT NULL,
     foto_perfil VARCHAR(255),
     pontos INTEGER,
     UNIQUE (nome_usuario),
     UNIQUE(email));
-
     """
-    # Criando o cursor com a opção de retorno como dicionário   
     cursor = initial_con.cursor(dictionary=True)
     cursor.execute(sql)
 
     cursor.close()
 
-
-def usuario_listar(user, tipo, campo):
-    sql = f"SELECT {campo} FROM usuarios WHERE {tipo} = '{user}'"
-    # Criando o cursor com a opção de retorno como dicionário   
+# Lista um campo de um usuário
+# dependendo como ele logou utiliza o nome de usuário ou o email
+def usuario_listar(usuario, campo):
+    tipo = "nome_usuario"
+    for char in list(usuario):
+        if char == '@':
+            tipo = "email"
+    sql = f"SELECT {campo} FROM usuarios WHERE {tipo} = '{usuario}'" 
     cursor = con.cursor(dictionary=True)
     cursor.execute(sql)
-
     for (registro) in cursor:
-        print(registro)
         resultado = registro[f"{campo}"]
-
-
     cursor.close()
     return resultado
 
-
-def usuario_checar(user, tipo, senha):
-    sql = f"SELECT {tipo} FROM usuarios WHERE {tipo}='{user}' and senha = '{senha}'"
+# checa se o usuário está no banco de dados e se estiver se a senha é válida
+def usuario_checar(usuario, senha):
+    tipo = "nome_usuario"
+    for char in list(usuario):
+        if char == '@':
+            tipo = "email"
+    sql = f"SELECT {tipo} FROM usuarios WHERE {tipo}='{usuario}'"
     cursor = con.cursor(dictionary=True)
     cursor.execute(sql)
     resultado = 0
@@ -53,8 +58,23 @@ def usuario_checar(user, tipo, senha):
         if str(registro) != "":
             resultado = registro[f'{tipo}']
 
-    return resultado
+    if resultado == 0:
+        return 1
+    
+    sql = f"SELECT senha FROM usuarios WHERE {tipo}='{usuario}'"
+    cursor.execute(sql)
+    for (i) in cursor:
+        hash = i['senha']
+        print(hash)
+        a = verifica_senha(senha, hash)
+        print(a)
+        if(a == False):
+            return 2
+        
 
+    return 0
+
+# inseri os dados do usuário no banco de dados (dados base da página de cadastro)
 def usuario_inserir(nome_usuario, email, senha, nome):
     cursor = con.cursor(dictionary=True)
     sql = f"INSERT INTO usuarios (nome_usuario, email, senha, nome) VALUES ('{nome_usuario}', '{email}', '{senha}', '{nome}')"

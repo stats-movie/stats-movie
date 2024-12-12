@@ -1,7 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from datetime import timedelta
 from funcs_db import usuario_inserir, usuario_checar, usuario_listar, criar_database
-import mysql.connector  
+import mysql.connector
+from hasher import senha_hash
+
 app = Flask(__name__)
 app.secret_key = "rochakkj."
 app.permanent_session_lifetime = timedelta(minutes=5)
@@ -14,12 +16,13 @@ def home():
 def cadastro():
     if request.method == "POST":
         criar_database()
-        nome_usuario = request.form['username']
-        email = request.form['email']
-        senha = request.form['password']
-        nome = f"{request.form['nome']} {request.form['sobrenome']}"
+        nome = f"{request.form['nome'].strip()} {request.form['sobrenome'].strip()}"
+        nome_usuario = request.form['username'].strip()
+        email = request.form['email'].strip()
+        senha = request.form['password'].strip()
+        hash = senha_hash(senha)
         try:
-            usuario_inserir(nome_usuario, email, senha, nome)
+            usuario_inserir(nome_usuario, email, hash, nome)
         except mysql.connector.IntegrityError:
             flash(f"Este Nome de Usuário ou Email já foi utilizado!", "info")
             return redirect(url_for("cadastro"))
@@ -30,23 +33,25 @@ def cadastro():
 @app.route("/login", methods = ["POST", "GET"])
 def login():
     if "user" in session:
-        return redirect(url_for("user"))
+        return redirect(url_for("perfil"))
 
     if request.method == "POST":
-        usuario = request.form["user"]
+        usuario = request.form["user"].strip()
         senha = request.form["password"]
-        tipo = "nome_usuario"
-        for i in list(usuario):
-            if i == '@':
-                tipo = "email"
-
-        if usuario_checar(usuario, tipo, senha) == usuario:
+        resultado = usuario_checar(usuario, senha)
+        if resultado == 0:
             session.permanent = True
-            session['user'] = usuario_listar(usuario, tipo, "nome_usuario")
-            session['email'] = usuario_listar(usuario, tipo, "email")
-            session['nome'] = usuario_listar(usuario, tipo, "nome")
-            return redirect(url_for("user"))
-        flash(f"Usuário, email ou senha não encontrado!", "info")
+            session['user'] = usuario_listar(usuario, "nome_usuario")
+            session['email'] = usuario_listar(usuario, "email")
+            session['nome'] = usuario_listar(usuario, "nome")
+            return redirect(url_for("perfil"))
+        
+        elif resultado == 1:
+            flash(f"Usuário ou email não encontrado!", "info")
+
+        elif resultado == 2:
+            flash(f"Senha incorreta!", "info")
+
     return render_template("login.html")
 
 @app.route("/homepage")
@@ -56,6 +61,10 @@ def homepage():
 
 @app.route("/user")
 def user():
+    return redirect(url_for("perfil"))
+
+@app.route("/perfil")
+def perfil():
     if "user" in session:  
         return f"<h1>Ola seu nome de usuario é {session['user']}! <br> Seu email é {session['email']} <br> Seu nome é {session['nome']}</h1>"
     else:
@@ -67,6 +76,8 @@ def logout():
         username = session["user"]
         flash(f"Usuário, {username}, deslogado com sucesso!", "info")
     session.pop("user", None)
+    session.pop("email", None)
+    session.pop("nome", None)
     return redirect(url_for("login"))
 
 @app.errorhandler(404)
