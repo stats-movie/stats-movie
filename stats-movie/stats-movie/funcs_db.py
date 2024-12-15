@@ -65,9 +65,7 @@ def usuario_checar(usuario, senha):
     cursor.execute(sql)
     for (i) in cursor:
         hash = i['senha']
-        print(hash)
         a = verifica_senha(senha, hash)
-        print(a)
         if(a == False):
             return 2
         
@@ -78,6 +76,29 @@ def usuario_checar(usuario, senha):
 def usuario_inserir(nome_usuario, email, senha, nome):
     cursor = con.cursor(dictionary=True)
     sql = f"INSERT INTO usuarios (nome_usuario, email, senha, nome) VALUES ('{nome_usuario}', '{email}', '{senha}', '{nome}')"
+    cursor.execute(sql)
+    con.commit() 
+    cursor.close()
+
+def usuario_atualizar(nome_usuario_antigo, nome_usuario, email, senha, nome, data_nascimento = "", numero_celular = "", foto_perfil = ""):
+    cursor = con.cursor(dictionary=True)
+    print(f"'{nome_usuario_antigo}'")
+    data = ""
+    numero = ""
+    foto = ""
+    sen = ""
+    if data_nascimento != "":
+        data = ", data_nascimento = "
+        data_nascimento = f"'{data_nascimento}'"
+    if numero_celular != "":
+        numero = ", numero_celular = "
+    if foto_perfil != "":
+        foto = ", foto_perfil = "
+        foto_perfil = f"'{foto_perfil}'"
+    if senha != "":
+        sen = ", senha = "
+        senha = f"'{senha}'"
+    sql = f"UPDATE usuarios SET nome_usuario = '{nome_usuario}', email = '{email}', nome = '{nome}'{sen}{senha}{data}{data_nascimento}{numero}{numero_celular}{foto}{foto_perfil} WHERE nome_usuario = '{nome_usuario_antigo}';"
     cursor.execute(sql)
     con.commit() 
     cursor.close()

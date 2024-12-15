@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from datetime import timedelta
-from funcs_db import usuario_inserir, usuario_checar, usuario_listar, criar_database
+from funcs_db import usuario_inserir, usuario_checar, usuario_listar, usuario_atualizar, criar_database
 import mysql.connector
 from hasher import senha_hash
 
@@ -16,10 +16,14 @@ def home():
 def cadastro():
     if request.method == "POST":
         criar_database()
-        nome = f"{request.form['nome'].strip()} {request.form['sobrenome'].strip()}"
+        nome = f"{request.form['nome'].strip()} {request.form['sobrenome']}"
         nome_usuario = request.form['username'].strip()
         email = request.form['email'].strip()
-        senha = request.form['password'].strip()
+        senha = request.form['password']
+        #senha_confirm = request.form['password-confirm']
+        #if(senha != senha_confirm):
+        #        flash("Senhas não correspondentes!", "warning")
+        #        return redirect(url_for("cadastro"))
         hash = senha_hash(senha)
         try:
             usuario_inserir(nome_usuario, email, hash, nome)
@@ -43,7 +47,8 @@ def login():
             session.permanent = True
             session['user'] = usuario_listar(usuario, "nome_usuario")
             session['email'] = usuario_listar(usuario, "email")
-            session['nome'] = usuario_listar(usuario, "nome")
+            session['nome'] = (usuario_listar(usuario, "nome")).split(" ")[0]
+            session['sobrenome'] = (usuario_listar(usuario, "nome")).split(" ")[-1]
             return redirect(url_for("perfil"))
         
         elif resultado == 1:
@@ -56,17 +61,42 @@ def login():
 
 @app.route("/homepage")
 def homepage():
-
     return render_template("homepage.html")
 
 @app.route("/user")
 def user():
     return redirect(url_for("perfil"))
 
-@app.route("/perfil")
+@app.route("/perfil", methods = ["POST", "GET"])
 def perfil():
-    if "user" in session:  
-        return f"<h1>Ola seu nome de usuario é {session['user']}! <br> Seu email é {session['email']} <br> Seu nome é {session['nome']}</h1>"
+    if "user" in session:
+        if request.method == "POST":
+            nome_usuario_antigo = session["user"]
+            nome = f"{request.form['nome'].strip()} {request.form['sobrenome'].strip()}"
+            nome_usuario = request.form['username'].strip()
+            email = request.form['email'].strip()
+            senha = request.form['password']
+            if senha != "":
+                senha_confirm = request.form['password-confirm']
+                if(senha != senha_confirm):
+                    flash("Senhas não correspondentes!", "warning")
+                    return redirect(url_for("perfil"))
+                senha = senha_hash(senha)
+            data_nascimento = request.form['data-nascimento']
+            numero_celular = request.form['numero-celular']
+            foto_perfil = request.form['foto-perfil']
+            usuario_atualizar(nome_usuario_antigo, nome_usuario, email, senha, nome, data_nascimento, numero_celular, foto_perfil)
+            session["user"] = nome_usuario
+            session["email"] = email
+            session["nome"] = request.form['nome']
+            session["sobrenome"] = request.form['sobrenome']
+            session["data"] = data_nascimento
+            session["celular"] = numero_celular
+            session["foto-perfil"] = foto_perfil
+            return redirect(url_for("home"))
+        else:
+            return render_template("perfil.html")
+        
     else:
         return redirect(url_for("login"))
     
@@ -78,6 +108,7 @@ def logout():
     session.pop("user", None)
     session.pop("email", None)
     session.pop("nome", None)
+    session.pop("sobrenome", None)
     return redirect(url_for("login"))
 
 @app.errorhandler(404)
