@@ -50,8 +50,8 @@
                         {% endif %}
                     {% endwith %}
                     <div class="form-group">
-                        <label for="celular">Número de Celular</label>
-                        <input type="tel" id="celular" name="numero-celular" value="{{session['celular']}}" placeholder="Insira somente números" readonly>
+                        <label for="celular">Número de Celular com DDD</label>
+                        <input type="tel" id="celular" name="numero-celular" value="{{session['celular']}}" placeholder="Insira somente números" minlength="10" maxlength="11" readonly>
                         <button type="button" onclick="habilitarEdicao('celular')">Editar</button>
                     </div>
                     <div class="form-group">

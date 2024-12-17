@@ -15,8 +15,18 @@ def homepage():
     flash("Para acessar o sistema é necessário estar logado!", "info")
     return redirect(url_for("login"))
 
-@app.route("/")
+@app.route("/home")
+def home():
+    return redirect(url_for("homepage"))    
+
+@app.route("/", methods = ["POST", "GET"])
 def landingpage():
+    if request.method == "POST":
+        if "user" in session:
+            return redirect(url_for("homepage"))
+        else:
+            flash("Para acessar o catálogo é necessário estar logado!")
+            return redirect(url_for("login"))
     return render_template("landingpage.html")
 
 
@@ -57,7 +67,11 @@ def login():
             session['email'] = usuario_listar(usuario, "email")
             session['nome'] = (usuario_listar(usuario, "nome")).split(" ")[0]
             session['sobrenome'] = (usuario_listar(usuario, "nome")).split(" ")[-1]
-            return redirect(url_for("perfil"))
+            session['foto-perfil'] = (usuario_listar(usuario, "foto_perfil"))
+            session['celular'] = (usuario_listar(usuario, "numero_celular"))
+            session['data-nascimento'] = (usuario_listar(usuario, "data_nascimento"))
+            print(session['data-nascimento'])
+            return redirect(url_for("homepage"))
         
         elif resultado == 1:
             flash(f"Usuário ou email não encontrado!", "info")
@@ -67,9 +81,6 @@ def login():
 
     return render_template("login.html")
 
-@app.route("/homepage")
-def homepage():
-    return render_template("homepage.html")
 
 @app.route("/user")
 def user():
