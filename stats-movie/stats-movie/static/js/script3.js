@@ -1,6 +1,6 @@
 const sliders3 = document.querySelector(".carrosselBox3");
 let scrollAmount3 = 0;
-let scrollPerClick3 = 170;
+let scrollPerClick3 = 167;
 const imagePadding3 = 20;
 
 function sliderScrollLeft3() {
@@ -25,11 +25,11 @@ function sliderScrollRight3() {
 }
 
 async function showMovieData3() {
-  const apiKey3 = "7f14aef7a818f9ca8d8fb0597e94b962";
+  const apiKey3 = "e67016b01ef609b82437fde192dabd82";
 
   try {
     const response3 = await axios.get(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey3}&include_adult=false&include_video=false&language=en-US&page=1&sort_by=vote_average.desc&without_genres=99,10755&vote_count.gte=200%27&page=5`
+      `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey3}&include_adult=false&include_video=false&language=en-US&page=1&sort_by=vote_count.desc&with_genres=16`
     );
 
     const movies3 = response3.data.results;
