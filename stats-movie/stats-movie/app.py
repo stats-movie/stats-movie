@@ -72,7 +72,8 @@ def login():
             if (usuario_listar(usuario, "numero_celular") != None):
                 session['celular'] = (usuario_listar(usuario, "numero_celular"))
             if (usuario_listar(usuario, "data_nascimento") != None):
-                session['data-nascimento'] = (usuario_listar(usuario, "data_nascimento"))
+                data = (usuario_listar(usuario, "data_nascimento"))
+                session['data'] = data.strftime("%Y-%d-%m")
             return redirect(url_for("homepage"))
         
         elif resultado == 1:
