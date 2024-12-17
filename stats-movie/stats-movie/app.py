@@ -25,7 +25,7 @@ def landingpage():
         if "user" in session:
             return redirect(url_for("homepage"))
         else:
-            flash("Para acessar o catálogo é necessário estar logado!")
+            flash("Para acessar o sistema é necessário estar logado!", "info")
             return redirect(url_for("login"))
     return render_template("landingpage.html")
 
