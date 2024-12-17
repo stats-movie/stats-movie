@@ -67,10 +67,12 @@ def login():
             session['email'] = usuario_listar(usuario, "email")
             session['nome'] = (usuario_listar(usuario, "nome")).split(" ")[0]
             session['sobrenome'] = (usuario_listar(usuario, "nome")).split(" ")[-1]
-            session['foto-perfil'] = (usuario_listar(usuario, "foto_perfil"))
-            session['celular'] = (usuario_listar(usuario, "numero_celular"))
-            session['data-nascimento'] = (usuario_listar(usuario, "data_nascimento"))
-            print(session['data-nascimento'])
+            if (usuario_listar(usuario, "foto_perfil") != None):
+                session['foto-perfil'] = (usuario_listar(usuario, "foto_perfil"))
+            if (usuario_listar(usuario, "numero_celular") != None):
+                session['celular'] = (usuario_listar(usuario, "numero_celular"))
+            if (usuario_listar(usuario, "data_nascimento") != None):
+                session['data-nascimento'] = (usuario_listar(usuario, "data_nascimento"))
             return redirect(url_for("homepage"))
         
         elif resultado == 1:
@@ -128,6 +130,10 @@ def logout():
     session.pop("email", None)
     session.pop("nome", None)
     session.pop("sobrenome", None)
+    session.pop("data", None)
+    session.pop("celular", None)
+    session.pop("foto-perfil", None)
+
     return redirect(url_for("login"))
 
 @app.errorhandler(404)
