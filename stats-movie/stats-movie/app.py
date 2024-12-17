@@ -8,9 +8,16 @@ app = Flask(__name__)
 app.secret_key = "rochakkj."
 app.permanent_session_lifetime = timedelta(minutes=5)
 
+@app.route("/homepage")
+def homepage():
+    if "user" in session:
+        return render_template("homepage.html")
+    flash("Para acessar o sistema é necessário estar logado!", "info")
+    return redirect(url_for("login"))
+
 @app.route("/")
-def home():
-    return redirect(url_for("homepage"))
+def landingpage():
+    return render_template("landingpage.html")
 
 @app.route("/cadastro", methods = ["POST", "GET"])
 def cadastro():

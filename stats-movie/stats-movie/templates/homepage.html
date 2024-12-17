@@ -21,7 +21,7 @@
       <a href=""><img src="{{ url_for('static', filename='images/linha.svg') }}" alt="Terror" title="Terror"></a>
       <a href=""><img src="{{ url_for('static', filename='images/config.svg') }}" alt="Configurações" title="Configurações"></a>
       <a href=""><img src="{{ url_for('static', filename='images/ajuda.svg') }}" alt="Ajuda" title="Ajuda"></a>
-  </div>
+    </div>
 
   <header class="header"> 
     <div><img class="logo" src="{{ url_for('static', filename='images/stats-movie.png') }}" alt="stats-movie"></div>
@@ -35,8 +35,8 @@
       <button type="submit">Buscar</button>
     </form>
     <a href="#" class="profile-button a1">
-      <div class="profile-icon"></div>
-      <span class="profile-points">100.000 pts.</span>
+      <img class="foto-perfil" src="{{session['foto-perfil']}}" alt="">
+      <span class="profile-points">1.000 pts.</span>
     </a>
   </header>
 
@@ -83,15 +83,11 @@
           <a 
             class="switchLeft sliderButton btnstyle"
             onclick="sliderScrollLeft()"
-          >
-            &lt;
-          </a>
+          >&lt;</a>
           <a
             class="switchRight sliderButton btnstyle"
             onclick="sliderScrollRight()"
-          >
-            &gt;
-          </a>
+          >&gt;</a>
         </div>
       </div>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.js"></script>
@@ -109,15 +105,11 @@
           <a
             class="switchLeft sliderButton btnstyle"
             onclick="sliderScrollLeft2()"
-          >
-            &lt;
-          </a>
+          >&lt;</a>
           <a
             class="switchRight sliderButton btnstyle"
             onclick="sliderScrollRight2()"
-          >
-            &gt;
-          </a>
+          >&gt;</a>
         </div>
       </div>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.js"></script>
@@ -134,14 +126,10 @@
           <a id="recomendados"
             class="switchLeft sliderButton btnstyle"
             onclick="sliderScrollLeft3()"
-          >
-            &lt;
-          </a>
-          <a
-            class="switchRight sliderButton btnstyle"
+          >&lt;</a>
+          <a class="switchRight sliderButton btnstyle"
             onclick="sliderScrollRight3()"
-          >
-            &gt;
+          >&gt;
           </a>
         </div>
       </div>

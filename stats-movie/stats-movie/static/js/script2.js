@@ -1,6 +1,6 @@
 const sliders2 = document.querySelector(".carrosselBox2");
 let scrollAmount2 = 0;
-let scrollPerClick2 = 167;
+let scrollPerClick2 = 177;
 const imagePadding2 = 20;
 
 function sliderScrollLeft2() {
