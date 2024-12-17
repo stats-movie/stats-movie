@@ -16,11 +16,11 @@
       <a href="#historico"><img src="{{ url_for('static', filename='images/historico.svg') }}" alt="Histórico" title="Histórico"></a>
       <a href="#minha-lista"><img src="{{ url_for('static', filename='images/lista.svg') }}" alt="Minha Lista" title="Minha Lista"></a> 
       <a href="#recomendados"><img src="{{ url_for('static', filename='images/recom.svg') }}" alt="Recomendados" title="Recomendados"></a>
-      <a href=""><img src="{{ url_for('static', filename='images/linha.svg') }}" alt="Ação" title="Ação"></a>
-      <a href=""><img src="{{ url_for('static', filename='images/linha.svg') }}" alt="Comédia" title="Comédia"></a>
-      <a href=""><img src="{{ url_for('static', filename='images/linha.svg') }}" alt="Terror" title="Terror"></a>
+      <a href=""><img src="https://img.icons8.com/?size=100&id=8193&format=png&color=ffffff" alt="Ação" title="Ação"></a>
+      <a href=""><img src="https://img.icons8.com/?size=100&id=8193&format=png&color=ffffff" alt="Comédia" title="Comédia"></a>
+      <a href=""><img src="https://img.icons8.com/?size=100&id=8193&format=png&color=ffffff" alt="Terror" title="Terror"></a>
       <a href=""><img src="{{ url_for('static', filename='images/config.svg') }}" alt="Configurações" title="Configurações"></a>
-      <a href=""><img src="{{ url_for('static', filename='images/ajuda.svg') }}" alt="Ajuda" title="Ajuda"></a>
+      <a href="/logout"><img src="https://img.icons8.com/?size=100&id=VTOU0AOwSnkY&format=png&color=ff0000" alt="Logout" title="Logout"></a>
     </div>
 
   <header class="header"> 
@@ -36,7 +36,7 @@
     </form>
     <a href="/perfil" class="profile-button a1">
       <img class="foto-perfil" src="{{session['foto-perfil']}}" alt="">
-      <span class="profile-points">1.000 pts.</span>
+      <span class="profile-points">100.000 pts.</span>
     </a>
   </header>
 
@@ -48,6 +48,18 @@
       <div class="offcanvas-body">
         <a href="#"><img src="{{ url_for('static', filename='images/home.svg') }}" alt="Home" title="Home">Home</a>
         <a href="#"><img src="{{ url_for('static', filename='images/evento.svg') }}" alt="Eventos" title="Eventos">Eventos</a>
+        <a href="#"><img src="{{ url_for('static', filename='images/historico.svg') }}" alt="Historico" title="Histórico">Histórico</a>
+        <a href="#"><img src="{{ url_for('static', filename='images/lista.svg') }}" alt="Minha Lista" title="Minha Lista">Minha Lista</a>
+        <a href="#"><img src="{{ url_for('static', filename='images/recom.svg') }}" alt="Recomendados" title="Recomendados">Recomendados</a>
+        <a href="#"><img src="https://img.icons8.com/?size=100&id=8193&format=png&color=ffffff" alt="Ação" title="Ação">Ação</a>
+        <a href="#"><img src="https://img.icons8.com/?size=100&id=8193&format=png&color=ffffff" alt="Animação" title="Animação">Animação</a>
+        <a href="#"><img src="https://img.icons8.com/?size=100&id=8193&format=png&color=ffffff" alt="Terror" title="Terror">Terror</a>
+        <a href="#"><img src="{{ url_for('static', filename='images/config.svg') }}" alt="Eventos" title="Configurações">Configurações</a>
+        <a href="/logout"><img src="https://img.icons8.com/?size=100&id=VTOU0AOwSnkY&format=png&color=ff0000" alt="Logout" title="Logout">Logout</a>
+
+
+
+
       </div>
     </div>
 
@@ -69,11 +81,12 @@
         <a href="https://www.themoviedb.org/movie/1022789-inside-out-2?language=pt-BR">
           <img src="https://m.media-amazon.com/images/M/MV5BYWY3MDE2Y2UtOTE3Zi00MGUzLTg2MTItZjE1ZWVkMGVlODRmXkEyXkFqcGc@._V1_SX300.jpg" alt="Inside Out 2" class="a3">
         </a>
-        <a id="historico"></a>
+        
       </div>
+      <a id="historico"></a>
     </section>
-
-    <section class="category" id="historico">
+    
+    <section class="category">
       <h2>Filmes Assistidos</h2>
       <div class="center">
         <div class="carrossel">
@@ -151,7 +164,6 @@
 
     frmPesquisa.onsubmit = function(ev) {
         ev.preventDefault();
-        alert("OK");
 
         const pesquisa = ev.target.pesquisa.value;
 

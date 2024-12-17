@@ -11,6 +11,10 @@
   font-family: 'Work Sans';
 }
 
+a{
+  text-decoration: none;
+}
+
 body {
   font-family: 'Work Sans';
   background-color: #121212;
@@ -40,38 +44,44 @@ body {
 }
 
 .sidebar a img{
-  height: 6vh;
+  height: 5.5vh;
   width: 3vw;
 }
 
 
 .menu-icon{
-  margin: 6px 2px 0px 1px;
+  margin: 6px 2px 3.3px 1px;
 }
 
 .offcanvas{
   --bs-offcanvas-bg: #1c1c1c;
   color: #fff;
-  --bs-offcanvas-width: 200px;
+  --bs-offcanvas-width: 235px;
   --bs-offcanvas-transition: transform 0;
 }
+
+.offcanvas-header{
+  margin-bottom: 8px;
+}
+
 .offcanvas-body{
   --bs-offcanvas-padding-x: 0,9rem;
   --bs-offcanvas-padding-y: 1,1rem;
 }
 
 .offcanvas a{
-  font-size: 20px;
-  max-width: 170px; 
+  font-size: 3vh;
+  max-width: 230px;
 }
 
 .offcanvas a img{
-  height: 6vh;
+  height: 5.5vh;
   width: 3vw;
 }
 
 .btn-close{
   opacity: 1 !important;
+  --bs-btn-close-bg: url(https://img.icons8.com/?size=100&id=111057&format=png&color=ffffff);
 }
 
 .center {
@@ -88,11 +98,10 @@ body {
 }
 
 .carousel {
-  height: 250px;
+  height: 260px;
   position: relative;
   display: flex;
   justify-content: center;
-  margin-left: 190px;
   margin-bottom: 50px;
   gap: 0px;
 }
@@ -100,7 +109,6 @@ body {
 .carousel a img {
   min-width: 200px;
   max-width: 200px;
-  height: 260px;
   background-size: cover;
   background-color: rgb(226, 89, 89);
   margin: 10px 5px;
@@ -288,7 +296,7 @@ a{
     color: #ffffff;
     font-size: 14px;
     display: table;
-    width: 300px;
+    width: 250px;
     padding: 10px;
 }
 
