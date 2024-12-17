@@ -19,6 +19,7 @@ def homepage():
 def landingpage():
     return render_template("landingpage.html")
 
+
 @app.route("/cadastro", methods = ["POST", "GET"])
 def cadastro():
     if request.method == "POST":

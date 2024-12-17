@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/landingpage.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Work Sans' rel='stylesheet'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <title>Landing page</title>
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+
+            <div class="logo">
+                <img  src="{{url_for('static', filename='/images/stats-movie.png')}}" alt="Logo" />
+                <!-- <img  src="static/images/stats-movie.png" alt="Logo" /> -->
+            </div>
+
+            <ul id="nav_list">
+                <li class="nav-item active">
+                    <a href="#home">O que é?</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#pontos">Pontos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#eventos">Eventos</a>
+                </li>
+            </ul>
+
+            <div style="display: flex; gap: 25px;">
+                <div id="cta_buttons">
+                    <a href="/cadastro" class="btn-default">
+                        Cadastro
+                    </a>
+                </div>
+
+  
+                <div id="cta_buttons">
+                    <a href="/login" class="btn-login">
+                        Login
+                    </a>
+                </div>
+            </div>
+
+
+            <button id="mobile_btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            
+        </nav>
+
+        <div id="mobile_menu">
+            <ul id="mobile_nav_list">
+                <li class="nav-item">
+                    <a href="#home">O que é?</a>ogin
+                </li>
+                <li class="nav-item">
+                    <a href="#pontos">Pontos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#eventos">Eventos</a>
+                </li>
+            </ul>
+
+            <button class="btn-default">
+                Cadastro
+            </button>
+        </div>
+    </header>
+
+    <main id="content">
+        <section id="home">
+        </script>
+    </body>
+    </html><div class="shape">
+                <div id="banner">
+                    <!-- <img class="banner-img" src="{{url_for('static', filename='/images/banner.png')}}" alt=""> -->
+                </div>
+            </div>
+            <div id="cta">
+                <h1 class="title">
+                    Explore <span>filmes.</span> Acumule <span>pontos.</span> Conquiste o mundo do <span>cinema!</span>
+                    
+                </h1>
+
+                <p class="description">
+                    Uma plataforma inovadora que conecta suas contas de streaming e transforma sua experiência de assistir a filmes em uma jornada interativa. A cada filme assistido, você acumula pontos, compete com outros usuários e descobre novas obras cinematográficas de forma divertida e gamificada.
+                </p>
+
+                <div id="cta_buttons">
+                    <a href="/login" class="btn-default">
+                        Ver Catálogo
+                    </a>
+                </div>
+
+                <!-- <div class="social-media-buttons">
+                    <a href="">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+
+                    <a href="">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                </div>
+            </div> -->
+
+        </section>
+
+        
+        <section id="pontos">
+            <div id="cta">
+                <h1 class="title"><span>Pontos</span></h1>
+                <p class="description">
+                 Nosso sistema de pontos recompensa você por cada filme assistido. Conecte suas contas de streaming e veja seus pontos crescerem enquanto explora diferentes gêneros e histórias. Filmes clássicos, lançamentos ou temáticos podem valer mais pontos em períodos específicos, tornando sua experiência ainda mais dinâmica.
+                </p>
+            </div>
+
+            <div id="dishes">
+                <!-- Filme normal -->
+                <div class="dish">
+                    <img src="https://sm.ign.com/ign_br/movie/d/dune/dune_1947.jpg" class="dish-image" alt="Filme 1">
+        
+                    <h3 class="dish-title">
+                        Duna
+                    </h3>
+        
+                    <span class="dish-description">
+                        Assista <strong> Duna </strong>e ganhe <strong>174 pontos!</strong>
+                    </span>
+        
+                    <div class="dish-rate">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+        
+                <!-- Filme com bônus de pontos -->
+                <div class="dish">
+        
+                    <img src="https://www.liveforfilm.com/wp-content/uploads/2022/04/the-godfather.jpg1400" class="dish-image" alt="Filme bônus">
+        
+                    <h3 class="dish-title">
+                        Poderoso Chefão
+                    </h3>
+        
+                    <span class="dish-description">
+                        Assista o <strong> Poderoso Chefão </strong>e ganhe <strong>175 pontos!</strong>
+                    </span>
+        
+                    <div class="dish-rate">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+        
+                <!-- Filme lançamento -->
+                <div class="dish">
+        
+                    <img src="https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2024/09/ainda-estou-aqui.png" class="dish-image" alt="Filme lançamento">
+        
+                    <h3 class="dish-title">
+                        Ainda Estou Aqui
+                    </h3>
+        
+                    <span class="dish-description">
+                        Assista <strong> Ainda Estou Aqui </strong>e ganhe <strong>137 pontos!</strong>
+                    </span>
+        
+                    <div class="dish-rate">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="eventos">
+            <div id="cta">
+            <img src="src/images/chef.png" id="testimonial_chef" alt="">
+
+            <div id="">
+                <h1 class="title">
+                    <span>Eventos</span>
+                </h1>
+                <p class="description">
+                    Os eventos multiplicadores são a sua chance de acumular pontos de forma acelerada! Durante campanhas especiais, como a 'Semana dos Filmes Clássicos' ou 'Maratona de Suspense', você pode ganhar pontos extras ao assistir títulos temáticos. Esteja atento ao calendário e aproveite para liderar o ranking global!
+                </p>
+
+                <div id="feedbacks">
+
+                <div class="feedback">
+                    <img src="https://blog.videoperola.com.br/wp-content/uploads/2023/06/filmes-de-acao.jpg" class="feedback-avatar" alt="">
+                        <div class="feedback-content">
+                            <h1 class="">
+                                Maratona de Filmes de Ação 
+                            </h1> 
+                            <p class="description">
+                                Participe da "Maratona de Filmes de Ação" e ganhe o dobro de pontos ao assistir filmes cheios de adrenalina e emoção! Durante essa semana, os filmes do gênero ação têm um valor multiplicado, permitindo que você acumule pontos rapidamente enquanto curte os maiores clássicos e lançamentos de ação. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feedback">
+                    <img src="https://elements-resized.envatousercontent.com/elements-video-cover-images/ef68a879-6e78-4b47-b10e-eadece7b1eb6/video_preview/video_preview_0000.jpg?w=500&cf_fit=cover&q=85&format=auto&s=fff18a9849c10d40601340fe0b7b2487a8352251990ba040b2eb2270ec101071" class="feedback-avatar" alt="">
+                        <div class="feedback-content">
+                            <h1 class="">
+                            Festival de Filmes Estrangeiros 
+                            </h1> 
+                            <p class="description">
+                                Mergulhe em novas culturas e ganhe pontos extras assistindo a filmes estrangeiros durante o "Festival de Filmes Estrangeiros". Aproveite para explorar obras premiadas de diferentes partes do mundo e acumule pontos multiplicados enquanto expande seu repertório cinematográfico.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <button class="btn-default" href="/login">
+                    Conhecer mais eventos
+                </button>
+            </div>
+        </div>
+        </section>
+    </main>
+
+    <footer>
+        <img src="src/images/wave.svg" alt="">
+
+        <div id="footer_items">
+            <span id="copyright">
+                &copy 2024 stats.movie
+            </span>
+
+            <!-- <div class="social-media-buttons">
+                <a href="">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+
+                <a href="">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+            </div> -->
+        </div>
+    </footer>
+
+    <script>
+$(document).ready(function() {
+  const sections = $('section');
+  const navItems = $('.nav-item');
+  
+  $(window).on('scroll', function() {
+    const header = $('header');
+    let activeSectionIndex = 0;
+    const scrollPosition = $(window).scrollTop() - $('#navbar').outerHeight();
+
+    if (scrollPosition <= 0) { 
+      header.css('box-shadow', 'none'); 
+    } else { 
+      header.css('box-shadow', '5px 1px 5px rgba(0, 0, 0, 0.1)'); 
+    }
+
+    sections.each(function(i) {
+      const section = $(this);
+      const sectionTop = section.offset().top - 96;
+      const sectionBottom = sectionTop + section.outerHeight();
+
+      if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+        activeSectionIndex = i;
+        return false;
+      }
+    });
+
+    navItems.removeClass('active');
+    $(navItems[activeSectionIndex]).addClass('active');
+  });
+
+  ScrollReveal().reveal('.dish', {
+    distance: '20%',
+    origin: 'left',
+    duration: 2000,
+  });
+
+  ScrollReveal().reveal('#cta', {
+    distance: '20%',
+    origin: 'left',
+    duration: 2000,
+  });
+
+  ScrollReveal().reveal('#testimonial_chef', {
+    distance: '20%',
+    origin: 'left',
+    duration: 1000,
+  });
+
+  ScrollReveal().reveal('.feedback', {
+    distance: '20%',
+    origin: 'right',
+    duration: 1000,
+  });
+
+  $('#mobile_btn').on('click', function () {
+	$('#mobile_menu').toggleClass('active');
+	$('#mobile_btn').find('i').toggleClass('fa-x');
+  });
+});
+    </script>
+</body>
+</html>

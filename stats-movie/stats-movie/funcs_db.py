@@ -31,6 +31,7 @@ def criar_database():
 
 # Lista um campo de um usuário
 # dependendo como ele logou utiliza o nome de usuário ou o email
+
 def usuario_listar(usuario, campo):
     con = abrir_conexao("localhost", "estudante1", "1234", "stats_movie")
     tipo = "nome_usuario"
