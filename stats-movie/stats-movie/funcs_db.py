@@ -1,12 +1,12 @@
 from conexao_db import abrir_conexao, abrir_conexao_database, fechar_conexao
 from hasher import senha_hash, verifica_senha
 
-con = abrir_conexao("localhost", "root", "1234", "stats_movie")
+
 
 # Cria o banco de dados stats_movie e suas tabelas
 def criar_database():
 
-    initial_con = abrir_conexao_database("localhost", "root", "1234")
+    initial_con = abrir_conexao_database("localhost", "estudante1", "1234")
 
     sql = """
     CREATE DATABASE if not exists stats_movie;
@@ -31,7 +31,9 @@ def criar_database():
 
 # Lista um campo de um usuário
 # dependendo como ele logou utiliza o nome de usuário ou o email
+
 def usuario_listar(usuario, campo):
+    con = abrir_conexao("localhost", "estudante1", "1234", "stats_movie")
     tipo = "nome_usuario"
     for char in list(usuario):
         if char == '@':
@@ -46,6 +48,7 @@ def usuario_listar(usuario, campo):
 
 # checa se o usuário está no banco de dados e se estiver se a senha é válida
 def usuario_checar(usuario, senha):
+    con = abrir_conexao("localhost", "estudante1", "1234", "stats_movie")
     tipo = "nome_usuario"
     for char in list(usuario):
         if char == '@':
@@ -74,6 +77,7 @@ def usuario_checar(usuario, senha):
 
 # inseri os dados do usuário no banco de dados (dados base da página de cadastro)
 def usuario_inserir(nome_usuario, email, senha, nome):
+    con = abrir_conexao("localhost", "estudante1", "1234", "stats_movie")
     cursor = con.cursor(dictionary=True)
     sql = f"INSERT INTO usuarios (nome_usuario, email, senha, nome) VALUES ('{nome_usuario}', '{email}', '{senha}', '{nome}')"
     cursor.execute(sql)
@@ -81,6 +85,7 @@ def usuario_inserir(nome_usuario, email, senha, nome):
     cursor.close()
 
 def usuario_atualizar(nome_usuario_antigo, nome_usuario, email, senha, nome, data_nascimento = "", numero_celular = "", foto_perfil = ""):
+    con = abrir_conexao("localhost", "estudante1", "1234", "stats_movie")
     cursor = con.cursor(dictionary=True)
     print(f"'{nome_usuario_antigo}'")
     data = ""

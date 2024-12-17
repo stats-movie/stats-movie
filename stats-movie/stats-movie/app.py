@@ -8,9 +8,13 @@ app = Flask(__name__)
 app.secret_key = "rochakkj."
 app.permanent_session_lifetime = timedelta(minutes=5)
 
-@app.route("/")
+@app.route("/home")
 def home():
-    return redirect(url_for("homepage"))
+    return redirect(url_for("landingpage"))
+
+@app.route("/")
+def landingpage():
+    return render_template("landingpage.html")
 
 @app.route("/cadastro", methods = ["POST", "GET"])
 def cadastro():
