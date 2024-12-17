@@ -37,11 +37,11 @@ async function showMovieData() {
     movies.forEach((movie, index) => {
       sliders.insertAdjacentHTML(
         "beforeend",
-        `<img class="img-${index} slider-img" src="https://image.tmdb.org/t/p/w300/${movie.poster_path}"/>`
+        `<a href="https://www.themoviedb.org/movie/${movie.id}?language=pt-BR"><img class="img-${index} slider-img" src="https://image.tmdb.org/t/p/w300/${movie.poster_path}"/></a>`
       );
     });
 
-    const firstImage = document.querySelector("img-0");
+    const firstImage = document.querySelector("img-0")
     if (firstImage) {
       scrollPerClick = firstImage + imagePadding;
     }

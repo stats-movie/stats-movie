@@ -87,6 +87,33 @@ body {
   gap: 10px;
 }
 
+.carousel {
+  height: 250px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-left: 190px;
+  margin-bottom: 50px;
+  gap: 0px;
+}
+
+.carousel a img {
+  min-width: 200px;
+  max-width: 200px;
+  height: 260px;
+  background-size: cover;
+  background-color: rgb(226, 89, 89);
+  margin: 10px 5px;
+  cursor: pointer;
+  transition: 0.5s ease;
+  z-index: 2;
+}
+
+.carousel a img:hover {
+  transform: scale(1.1);
+  z-index: 5;
+}
+
 .carrossel .switchLeft,
 .carrossel .switchRight {
   color: white;
@@ -130,7 +157,7 @@ body {
   height: 210px;
   background-size: cover;
   background-color: rgb(226, 89, 89);
-  margin: 5px 10px;
+  margin: 5px 5px;
   cursor: pointer;
   transition: 0.5s ease;
   z-index: 2;
@@ -159,7 +186,7 @@ body {
   height: 210px;
   background-size: cover;
   background-color: rgb(226, 89, 89);
-  margin: 5px 10px;
+  margin: 5px 5px;
   cursor: pointer;
   transition: 0.5s ease;
   z-index: 2;
@@ -188,7 +215,7 @@ body {
   height: 210px;
   background-size: cover;
   background-color: rgb(226, 89, 89);
-  margin: 5px 10px;
+  margin: 5px 5px;
   cursor: pointer;
   transition: 0.5s ease;
   z-index: 2;

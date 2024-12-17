@@ -37,7 +37,7 @@ async function showMovieData2() {
     movies2.forEach((movie, index) => {
       sliders2.insertAdjacentHTML(
         "beforeend",
-        `<img class="img-${index} slider-img" src="https://image.tmdb.org/t/p/w300/${movie.poster_path}"/>`
+        `<a href="https://www.themoviedb.org/movie/${movie.id}?language=pt-BR"><img class="img-${index} slider-img" src="https://image.tmdb.org/t/p/w300/${movie.poster_path}"/></a>`
       );
     });
 
