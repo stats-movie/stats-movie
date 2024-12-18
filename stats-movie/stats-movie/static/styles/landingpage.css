@@ -153,10 +153,9 @@ header {
 }
 
 #banner img {
-    height: fit-content;
-    margin-top: 100px;
-    margin-right: 1px;
-    width: 560px;
+    margin-top: 75px;
+    margin-right: -50px;
+    width: 700px;
 }
 
 .shape {
@@ -164,7 +163,7 @@ header {
     width: 50%;
     height: 100%;
     position: absolute;
-    border-radius: 40% 30% 0% 20%;
+    border-radius: 40% 0% 0% 15%;
     top: 0;
     right: 0;
     z-index: 1;

@@ -99,6 +99,18 @@
     width: 100%;
   }
   
+    .logo{
+    text-align: center;
+    align-items: center;
+    align-content: center;
+  }
+
+  .logo img {
+    width: 200px;
+    margin-bottom: 20px;
+    margin-top: -20px;
+  }
+
   .input-field label {
     display: block;
     font-size: 14px;
